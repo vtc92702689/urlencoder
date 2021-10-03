@@ -4,8 +4,7 @@
 <script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js" type="text/javascript"></script>
 <script>
     ThunkableWebviewerExtension.receiveMessage(function(message) {
-        var myurl = "Tessadhfkashdfkshdfa";
-        ThunkableWebviewerExtension.postMessage(btoa(myurl));
+        ThunkableWebviewerExtension.postMessage(encodeURI(message));
     } );
 </script>
 </head>
