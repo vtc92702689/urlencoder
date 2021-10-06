@@ -8,12 +8,12 @@
         //ThunkableWebviewerExtension.postMessage(encodeURIComponent(message));
         var img = new Image;
 
-        img.onload = resizeImage(img);
+        img.onload = resizeImage();
         img.src = 'data:image/jpeg;base64,' + message;
 
     } );
     function resizeImage() {
-    var newDataUri = imageToDataUri(img, 150, 150);
+    var newDataUri = imageToDataUri(this, 150, 150);
     ThunkableWebviewerExtension.postMessage(encodeURIComponent(newDataUri));
     // continue from here...
     };
