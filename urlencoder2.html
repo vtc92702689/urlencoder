@@ -12,7 +12,7 @@
         function resizeImage() {
             var newimgbase64 = imageToDataUri(this,150,100).replace('data:image/png;base64,','');
             ThunkableWebviewerExtension.postMessage(encodeURIComponent(newimgbase64));
-            console.log(newimgbase64);
+            //console.log(newimgbase64);
         };
 
         function imageToDataUri(img, width, height) {
