@@ -5,19 +5,8 @@
 <script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js" type="text/javascript"></script>
 <script>
     ThunkableWebviewerExtension.receiveMessage(function(message) {
-        //ThunkableWebviewerExtension.postMessage(encodeURIComponent(message));
-        var img = new Image;
-
-        img.onload = resizeImage();
-        img.src = 'data:image/jpeg;base64,' + message;
-
+        ThunkableWebviewerExtension.postMessage(encodeURIComponent(message));
     } );
-    function resizeImage() {
-    var newDataUri = imageToDataUri(this, 150, 150);
-    ThunkableWebviewerExtension.postMessage(encodeURIComponent(newDataUri));
-    // continue from here...
-    };
-
 </script>
 </head>
 <body>
