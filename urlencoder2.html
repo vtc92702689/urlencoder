@@ -10,8 +10,8 @@
         img.src = 'data:image/jpeg;base64,' + message;
 
         function resizeImage() {
-            var newimgbase64 = imageToDataUri(this,150,100).replace('data:image/png;base64,','');
-            ThunkableWebviewerExtension.postMessage(encodeURIComponent(newimgbase64));
+            var newimgbase64 = imageToDataUri(this,600,419).replace('data:image/png;base64,','');
+            ThunkableWebviewerExtension.postMessage(newimgbase64);
             //console.log(newimgbase64);
         };
 
