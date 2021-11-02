@@ -5,9 +5,23 @@
 <script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js" type="text/javascript"></script>
 <script type="text/javascript">
     ThunkableWebviewerExtension.receiveMessage(function(message) {
-        img = document.createElement("img");
+      var xhr = new XMLHttpRequest();       
+       xhr.open("GET", message, true); 
+       xhr.responseType = "blob";
+       xhr.onload = function (e) {
+            console.log(this.response);
+            var reader = new FileReader();
+            reader.onload = function(event) {
+               var res = event.target.result;
+               console.log(res)
+            }
+            var file = this.response;
+            reader.readAsDataURL(file)
+      };
+      xhr.send()
+        img = new Image;
         img.onload = resizeImage;
-        img.src = message;
+        img.src = xhr;
 
         function resizeImage() {
             var newimgbase64 = imageToDataUri(this,600,419).replace('data:image/png;base64,','');
